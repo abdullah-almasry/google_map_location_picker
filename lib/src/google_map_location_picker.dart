@@ -174,7 +174,7 @@ class LocationPickerState extends State<LocationPicker> {
     }
 
     LocationUtils.getAppHeaders()
-        .then((headers) => http.get(endpoint, headers: headers))
+        .then((headers) => http.get(Uri.parse(endpoint), headers: headers))
         .then((response) {
       if (response.statusCode == 200) {
         Map<String, dynamic> data = jsonDecode(response.body);
@@ -223,7 +223,7 @@ class LocationPickerState extends State<LocationPicker> {
             '&language=${widget.language}';
 
     LocationUtils.getAppHeaders()
-        .then((headers) => http.get(endpoint, headers: headers))
+        .then((headers) => http.get( Uri.parse(endpoint), headers: headers))
         .then((response) {
       if (response.statusCode == 200) {
         Map<String, dynamic> location =
